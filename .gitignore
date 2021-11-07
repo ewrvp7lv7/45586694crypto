@@ -13,3 +13,5 @@
 
 # Sertificates for tls
 serts/
+
+info.log
