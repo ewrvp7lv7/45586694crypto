@@ -1,0 +1,9 @@
+INFO 2021/11/07 18:35:11 TCP TLS Server is UP @ localhost: 2121
+INFO 2021/11/07 18:35:18 invalid credentials: 
+INFO 2021/11/07 18:42:30 invalid credentials: 
+INFO 2021/11/07 18:46:44 Server:Client user1 Validated
+INFO 2021/11/07 18:47:33 Upload Request
+INFO 2021/11/07 18:47:33 File c0f86b7f-4892-493d-8fe3-b87eeec7584d downloaded successfully
+INFO 2021/11/07 18:48:15 Download Request
+INFO 2021/11/07 18:48:15 File  c0f86b7f-4892-493d-8fe3-b87eeec7584d  Send successfully
+INFO 2021/11/07 18:48:50 closed

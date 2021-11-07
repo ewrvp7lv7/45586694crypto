@@ -1,6 +1,8 @@
 package main
 
 import (
+	"crypto/tls"
+	"flag"
 	"fmt"
 	"net"
 
@@ -14,11 +16,32 @@ const (
 
 func run() (err error) {
 
-	connect, err := net.Dial("tcp", HOST+":"+PORT)
-	if err != nil {
-		return err
+	var connect net.Conn
+
+	boolTSL := flag.Bool("tls", false, "Set tls connection")
+	flag.Parse()
+	if !*boolTSL {
+
+		connect, err = net.Dial("tcp", HOST+":"+PORT)
+		if err != nil {
+			return err
+		}
+
+		fmt.Println("TCP server is Connected @ ", HOST, ":", PORT)
+
+	} else {
+
+		conf := &tls.Config{
+			InsecureSkipVerify: true,
+		}
+
+		connect, err = tls.Dial("tcp", HOST+":"+PORT, conf)
+		if err != nil {
+			return err
+		}
+
+		fmt.Println("TCP TLS Server is Connected @ ", HOST, ":", PORT)
 	}
-	fmt.Println("TCP server is Connected @ ", HOST, ":", PORT)
 
 	defer connect.Close()
 

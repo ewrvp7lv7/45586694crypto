@@ -14,7 +14,7 @@ func AuthenticateClient(conn net.Conn) error {
 
 	stdreader := bufio.NewReader(os.Stdin)
 
-	buffer := make([]byte, BUFFERSIZE)
+	buffer := make([]byte, 1024)
 	n, err := conn.Read(buffer)
 	if err != nil {
 		return err

@@ -9,10 +9,6 @@ import (
 	"strings"
 )
 
-const (
-	BUFFERSIZE = 4096
-)
-
 var ROOT = "filestore/clientDir"
 
 //dynamic root dir
@@ -46,6 +42,7 @@ func HandleClient(conn net.Conn) {
 				fmt.Println("Too short password")
 				continue
 			}
+
 			sendFile(conn, cmdArr[1], strings.Trim(myFPass, "\n"))
 
 		case "download":
@@ -65,13 +62,11 @@ func HandleClient(conn net.Conn) {
 				continue
 			}
 
-			conn.Write([]byte(fmt.Sprintf("download %s\n", cmdArr[1])))
-
-			getFile(conn, strings.Trim(myFPass, "\n"))
+			getFile(conn, cmdArr[1], strings.Trim(myFPass, "\n"))
 
 		case "ls":
 			conn.Write([]byte(cmd))
-			buffer := make([]byte, BUFFERSIZE)
+			buffer := make([]byte, 4096)
 			n, _ := conn.Read(buffer)
 			fmt.Print(string(buffer[:n]))
 

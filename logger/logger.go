@@ -23,11 +23,11 @@ func init() {
 
 	// infoLogger2File = log.New(file, "INFO\t", log.LstdFlags|log.Lshortfile)
 	// infoLogger2T = log.New(os.Stdout, "INFO\t", log.LstdFlags|log.Lshortfile)
-	infoLogger2File = log.New(file, "INFO\t", log.LstdFlags)
-	infoLogger2T = log.New(os.Stdout, "INFO\t", log.LstdFlags)
+	infoLogger2File = log.New(file, "INFO ", log.LstdFlags) //"INFO\t"
+	infoLogger2T = log.New(os.Stdout, "INFO ", log.LstdFlags)
 }
 
-func Println(str string) {
-	infoLogger2File.Println(str)
-	infoLogger2T.Println(str)
+func Println(v ...interface{}) {
+	infoLogger2File.Println(v...)
+	infoLogger2T.Println(v...)
 }
