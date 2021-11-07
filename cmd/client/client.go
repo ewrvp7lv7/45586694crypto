@@ -32,7 +32,7 @@ func run() (err error) {
 	} else {
 
 		conf := &tls.Config{
-			InsecureSkipVerify: true,
+			// InsecureSkipVerify: true,
 		}
 
 		connect, err = tls.Dial("tcp", HOST+":"+PORT, conf)

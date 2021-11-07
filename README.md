@@ -33,7 +33,7 @@ go run cmd/client/client.go
 *Make sure to allow traffic to the port 2121 specified on your VPC firewall.*
 
 #### Code review:
-Проект выполнен встроенным набором Golang 1.17 без сторонних библиотек, за исключением получения UUID при помощи [google/uuid](github.com/google/uuid).
+Проект выполнен встроенным набором Golang 1.17.1 без сторонних библиотек, за исключением получения UUID при помощи [google/uuid](github.com/google/uuid).
 
 
 Наиболее сложный алгоритм `client/getfile.go` передачи файла с сервера:
