@@ -14,9 +14,6 @@ import (
 const (
 	PORT = "2121"
 )
-
-//tsl
-//освоить документацию
 func run() (err error) {
 
 	var lstnr net.Listener
